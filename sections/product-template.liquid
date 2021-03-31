@@ -159,10 +159,26 @@
           {%- endcapture %}
 
           {% form 'product', product, class:form_classes, novalidate: 'novalidate', data-product-form: '' %}
+
+
+
+
             {% unless product.has_only_default_variant %}
+
               <div class="product-form__controls-group">
+
                 {% for option in product.options_with_values %}
+
                   <div class="selector-wrapper js product-form__item">
+
+										{% for x in product.variants %}
+											{% for j in x.options %}
+												<input type='radio' value='{{j}}' class='inputs_change_product' path='{{request.path}}'
+											  variant='{{x.id}}'>
+												{{j}}
+											{% endfor %}
+										{% endfor %}
+
                     <label for="SingleOptionSelector-{{ forloop.index0 }}">
                       {{ option.name }}
                     </label>
@@ -174,10 +190,19 @@
                         <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value }}</option>
                       {% endfor %}
                     </select>
+
                   </div>
+
                 {% endfor %}
               </div>
+
             {% endunless %}
+
+
+
+
+
+
 
             <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variants no-js">
               {% for variant in product.variants %}

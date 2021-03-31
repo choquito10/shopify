@@ -1,0 +1,11 @@
+.inputs__color-pickers {
+  display: flex;
+}
+
+.inputs__color-pickers > button {
+  width: 4rem;
+  height: 2rem;
+  border-radius: 100%;
+  border: none;
+  outline: none;
+}
