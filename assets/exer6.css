@@ -1,0 +1,33 @@
+  .countFooter{
+    width: 20rem;
+    background-color: #F6F6F6;
+    border: gray 1px solid;
+    position: fixed;
+    top: 10px;
+    right: 0px;
+    visibility: hidden;
+    border-radius: 10px;
+    z-index: 20;
+  }
+
+  .visibility {
+    visibility: visible !important;
+  }
+
+  .invisibility {
+    visibility: hidden;
+  }
+
+  .countFooter_close{
+    font-size: medium;
+    margin-left: 90%;
+    padding-left: 10px;
+    background-color: #ffffff;
+    border: black 1px solid;
+    border-radius: 20%;
+  }
+
+  .countFooter_title, 
+  .countFooter_call {
+    padding: 10px 10px;
+  }
