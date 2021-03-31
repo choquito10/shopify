@@ -11,8 +11,10 @@ for (const input of inputs) {
 }
 
 function selectFirst(e) {
+  let section = e.target.getAttribute('section');
   for (const element of imagesContainer.children) {
-    if (element.getAttribute('data-media-id') === `product-template-${e.target.value}`) {
+    if (!element.getAttribute('data-media-id')) return;
+    if (element.getAttribute('data-media-id') === `${section}-${e.target.value}`) {
       element.classList.remove('hide');
     } else {
       element.classList.add('hide');
@@ -24,6 +26,7 @@ function selectSecond(e) {
   for (const option of selectHide.children) {
     if (option.text === e.target.value) {
       option.selected = true;
+      selectHide.value = option.text;
     }
   }
 }
