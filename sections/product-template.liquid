@@ -173,7 +173,7 @@
 
 										{% for x in product.variants %}
 											{% for j in x.options %}
-												<input type='radio' value='{{j}}' class='inputs_change_product' path='{{request.path}}'
+												<input type='radio' value='{{j}}' class='inputs_change_product only-one' path='{{request.path}}'
 											  variant='{{x.id}}'>
 												{{j}}
 											{% endfor %}
