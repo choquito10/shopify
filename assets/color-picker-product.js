@@ -1,6 +1,7 @@
 const inputs = document.getElementsByClassName('inputs_change_product');
 const select = document.getElementsByClassName('product-form__input')[0];
-const select3 = document.getElementById('ProductSelect-product-template');
+const selectHide = document.getElementById('ProductSelect-product-template');
+const imagesContainer = document.getElementsByClassName('product-single__media-group')[0];
 
 for (const input of inputs) {
   input.addEventListener('click', e => {
@@ -10,15 +11,17 @@ for (const input of inputs) {
 }
 
 function selectFirst(e) {
-  for (const option of select.children) {
-    if (option.getAttribute('value') === e.target.value) {
-      option.selected = true;
+  for (const element of imagesContainer.children) {
+    if (element.getAttribute('data-media-id') === `product-template-${e.target.value}`) {
+      element.classList.remove('hide');
+    } else {
+      element.classList.add('hide');
     }
   }
 }
 
 function selectSecond(e) {
-  for (const option of select3.children) {
+  for (const option of selectHide.children) {
     if (option.text === e.target.value) {
       option.selected = true;
     }
